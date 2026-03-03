@@ -1,8 +1,9 @@
-// import { API_BASE_URL } from "../../../../config/constant";
-const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL || '';
+
+// const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL || '';
+import { API_BASE_URLS } from "../../../../config/constant";
 
 async function getuser(id) {
-    let data = await fetch(`${baseUrl}/api/list/${id}`);
+    let data = await fetch(`${API_BASE_URLS}/api/list/${id}`);
     data = await data.json();
     return data.result;
 }

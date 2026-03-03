@@ -2,7 +2,8 @@
 import deleteIcon from "../../assets/img/delete.png";
 import Image from "next/image";
 import { useRouter } from 'next/navigation';
-const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL || '';
+// const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL || '';
+import { API_BASE_URLS } from "../../../config/constant";
 
 export default function DeleteBTN(props) {
 
@@ -10,7 +11,7 @@ export default function DeleteBTN(props) {
     const router = useRouter();
 
     const deleteUser = async () => {
-        let result = await fetch(`${baseUrl}/api/user/${userID}`, {
+        let result = await fetch(`${API_BASE_URLS}/api/user/${userID}`, {
             method: "Delete",
         });
         let response = await result.json();

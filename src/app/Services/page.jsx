@@ -1,26 +1,12 @@
 
 import Link from "next/link";
 import Remove from "./Remove";
-const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL || '';
-
-// async function GetAPIData() {
-//     try {
-//         const response = await fetch(`${baseUrl}/API/List`);
-//         if (!response.ok) {
-//             throw new Error(`HTTP error! Status: ${response.status}`);
-//         }
-//         const finalData = await response.json();
-//         // Make sure users exists
-//         return finalData?.users || finalData;
-//     } catch (error) {
-//         console.error("Error fetching API data:", error);
-//         return null;
-//     }
-// }
+// const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL || '';
+import { API_BASE_URLS } from "../../../config/constant";
 
 async function GetAPIData() {
     try {
-        const res = await fetch(`${baseUrl}/api/list`, { cache: 'no-store' });
+        const res = await fetch(`${API_BASE_URLS}/api/list`, { cache: 'no-store' });
         if (!res.ok) throw new Error('Failed to fetch API data');
         const data = await res.json();
         return data;

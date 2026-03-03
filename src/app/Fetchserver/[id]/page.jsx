@@ -5,7 +5,8 @@ import { useRouter } from 'next/navigation';
 import delIcon from '../../../assets/img/delete.png';
 import ediIcon from '../../../assets/img/edit.png';
 import Image from "next/image";
-const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL || '';
+// const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL || '';
+import { API_BASE_URLS } from "../../../../config/constant";
 
 export default function Page({ params }) {
 
@@ -41,7 +42,7 @@ export default function Page({ params }) {
 
     const getUserDetails = async () => {
         try {
-            const response = await fetch(`${baseUrl}/api/user`);
+            const response = await fetch(`${API_BASE_URLS}/api/user`);
             const data = await response.json();
             const user = data.find(x => Number(x.id) === Number(id));
             setFormState(user);
@@ -61,7 +62,7 @@ export default function Page({ params }) {
 
     const updateUser = async () => {
         try {
-            const response = await fetch(`${baseUrl}/api/user/${id}`, {
+            const response = await fetch(`${API_BASE_URLS}/api/user/${id}`, {
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json",
@@ -101,7 +102,7 @@ export default function Page({ params }) {
         }
         try {
             const { name, email, cell, password } = values
-            const response = await fetch(`${baseUrl}/api/user`, {
+            const response = await fetch(`${API_BASE_URLS}/api/user`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -160,7 +161,7 @@ export function DeleteBTN(props) {
     const userID = props.id;
     const router = useRouter();
     const DelCtrl = async () => {
-        let result = await fetch(`${baseUrl}/api/user/${userID}`, {
+        let result = await fetch(`${API_BASE_URLS}/api/user/${userID}`, {
             method: "Delete",
         });
         let response = await result.json();

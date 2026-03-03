@@ -1,7 +1,7 @@
 "use client";
-
 import { useState } from "react";
-const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL || '';
+// const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL || '';
+import { API_BASE_URLS } from "../../../../config/constant";
 
 export default function Page() {
     const initialState = {
@@ -23,7 +23,7 @@ export default function Page() {
     const loginUser = async (e) => {
         e.preventDefault();
         try {
-            const response = await fetch(`${baseUrl}/api/login`, {
+            const response = await fetch(`${API_BASE_URLS}/api/login`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

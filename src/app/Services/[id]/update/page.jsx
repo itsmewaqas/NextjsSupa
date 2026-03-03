@@ -1,7 +1,8 @@
 "use client"
 import { useEffect, useState } from "react";
 import { useRouter, useParams } from 'next/navigation';
-const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL || '';
+// const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL || '';
+import { API_BASE_URLS } from "../../../../../config/constant";
 
 export default function Page({ params }) {
 
@@ -34,7 +35,7 @@ export default function Page({ params }) {
     const getUserDetails = async () => {
         const getParams = await params;
         const getID = getParams.id;
-        let response = await fetch(`${baseUrl}/api/list/${getID}`);
+        let response = await fetch(`${API_BASE_URLS}/api/list/${getID}`);
         let data = await response.json();
         console.log(data.result);
         setValues({
@@ -49,7 +50,7 @@ export default function Page({ params }) {
     const updateUser = async () => {
         const getParams = await params;
         const getID = getParams.id;
-        let result = await fetch(`${baseUrl}/api/list/${getID}`, {
+        let result = await fetch(`${API_BASE_URLS}/api/list/${getID}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",

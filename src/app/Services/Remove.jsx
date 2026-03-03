@@ -1,6 +1,7 @@
 "use client"
 import { useRouter } from 'next/navigation';
-const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL || '';
+// const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL || '';
+import { API_BASE_URLS } from '../../../config/constant';
 
 export default function Remove(props) {
     const userID = props.id;
@@ -9,7 +10,7 @@ export default function Remove(props) {
     const router = useRouter();
 
     const deleteUser = async () => {
-        let result = await fetch(`${baseUrl}/api/list/${userID}`, {
+        let result = await fetch(`${API_BASE_URLS}/api/list/${userID}`, {
             method: "Delete",
         });
         let response = await result.json();
