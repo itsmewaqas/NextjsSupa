@@ -30,6 +30,7 @@ import { DeleteBTN, EditBTN } from './[id]/page';
 export default async function Page() {
 
     let users = await userList();
+    users.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
 
     return (
         <div>
