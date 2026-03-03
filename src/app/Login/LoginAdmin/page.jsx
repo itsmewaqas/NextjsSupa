@@ -1,6 +1,5 @@
 "use client";
 import { useState } from "react";
-// const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL || '';
 import { API_BASE_URLS } from "../../../../config/constant";
 
 export default function Page() {

@@ -5,7 +5,6 @@ import { useRouter } from 'next/navigation';
 import delIcon from '../../../assets/img/delete.png';
 import ediIcon from '../../../assets/img/edit.png';
 import Image from "next/image";
-// const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL || '';
 import { API_BASE_URLS } from "../../../../config/constant";
 
 export default function Page({ params }) {

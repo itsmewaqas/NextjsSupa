@@ -1,10 +1,9 @@
 
-// const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL || '';
 import { API_BASE_URLS } from '../../../config/constant';
 
 async function userList() {
     try {
-        const data = await fetch(`${API_BASE_URLS}/api/user`);
+        const data = await fetch(`${API_BASE_URLS}/api/user`, { cache: "no-store" });
         // Check if response is NOT OK (404, 500, etc.)
         if (!data.ok) {
             throw new Error(`Error ${data.status}: Data not found`);

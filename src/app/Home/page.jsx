@@ -1,5 +1,4 @@
 import { Event1, Event2, Event3 } from "./EventComponent";
-// const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL || '';
 import { API_BASE_URLS } from "../../../config/constant";
 
 export default function Page() {
